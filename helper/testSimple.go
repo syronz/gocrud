@@ -3,17 +3,13 @@ package helper
 import (
 	"encoding/json"
 	"fmt"
+	"go_crud/models"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"strings"
 )
-
-type Basics struct {
-	Tokens  []string    `json:"tokens"`
-	Payload interface{} `json:"payload"`
-}
 
 func SimplePost() {
 	f, err := os.Open("funds/post.json")
@@ -22,7 +18,7 @@ func SimplePost() {
 	}
 	defer f.Close()
 	decoder := json.NewDecoder(f)
-	basic := Basics{}
+	basic := models.Basic{}
 	err = decoder.Decode(&basic)
 	if err != nil {
 		log.Fatal("can't decode basic.json: ", err)
