@@ -1,0 +1,29 @@
+{
+	"tokens" : [
+		"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFwcHVzZXIiLCJleHAiOjE1NzQ2ODU3Njh9.5xS1e9CdSoYWiOqwUbrvRGDdku03ObpF-zP8F20z1Go",
+		"token2",
+		"token3"
+	],
+
+	"headers":{
+		"Content-Type": "application/json",
+		"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFwcHVzZXIiLCJleHAiOjE1NzQ2ODU3Njh9.5xS1e9CdSoYWiOqwUbrvRGDdku03ObpF-zP8F20z1Go",
+		"User-Agent": "go_crud/0.1",
+		"Accept": "*/*",
+		"Cache-Control": "no-cache",
+		"Host": "127.0.0.1:8080",
+		"Accept-Encoding": "gzip: deflate",
+		"Content-Length": "82",
+		"Connection": "keep-alive",
+		"cache-control": "no-cache"
+	},
+
+	"payload": {
+		"category_id": 3,
+		"manufacturer_id":1,
+		"model":"ONT fireber",
+		"barcode":"1234567",
+		"result":true,
+		"price":3500.300
+	}
+}
