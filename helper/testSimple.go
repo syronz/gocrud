@@ -1,5 +1,6 @@
 package helper
 
+/*j
 import (
 	"encoding/json"
 	"fmt"
@@ -11,6 +12,7 @@ import (
 	"strings"
 )
 
+/*
 func SimplePost() {
 	f, err := os.Open("funds/post.json")
 	if err != nil {
@@ -35,7 +37,7 @@ func SimplePost() {
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFwcHVzZXIiLCJleHAiOjE1NzQ2ODU3Njh9.5xS1e9CdSoYWiOqwUbrvRGDdku03ObpF-zP8F20z1Go")
 	req.Header.Add("User-Agent", "PostmanRuntime/7.17.1")
-	req.Header.Add("Accept", "*/*")
+	req.Header.Add("Accept", "* /*")
 	req.Header.Add("Cache-Control", "no-cache")
 	req.Header.Add("Postman-Token", "9949e72f-4f37-4834-b0fa-e334472c585c,0cd3c3d6-52aa-49e5-b8d2-81812a3146f8")
 	req.Header.Add("Host", "127.0.0.1:8080")
@@ -50,3 +52,4 @@ func SimplePost() {
 	fmt.Println(res)
 	fmt.Println(string(body))
 }
+*/

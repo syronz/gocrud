@@ -1,8 +1,0 @@
-{
-	"payload": {
-		"type": "in",
-		"invoice_id": 1,
-		"peer_id": null,
-		"amount": 1000
-	}
-}

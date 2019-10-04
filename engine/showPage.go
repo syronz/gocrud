@@ -1,8 +1,8 @@
-package helper
+package engine
 
-/*TODO: deprecated, please use engine.showPage*/
 import (
 	"fmt"
+	. "go_crud/global"
 )
 
 var NumForList = map[int]string{
@@ -12,12 +12,23 @@ var NumForList = map[int]string{
 	28: "S", 29: "T", 30: "U", 31: "V", 32: "W", 33: "X", 34: "Y", 35: "Z",
 }
 
-func ListArr(arr []string, msg string) {
+func (e *Engine) ShowPage(arr []string, msg string) {
 	fmt.Println(msg)
 	for i, v := range arr {
 		if i > 35 {
 			break
 		}
 		fmt.Printf("%v. %v \n", NumForList[i], v)
+	}
+}
+func (e *Engine) Show() {
+	switch e.Page {
+	case DIRECTORIES:
+		e.ShowPage(e.Dirs, "Directories: ")
+	case FILES:
+		e.ShowPage(e.Files, "Files: ")
+	case ENVIRONMENTS:
+		e.ShowPage(e.EnvArr, "Environments: ")
+
 	}
 }

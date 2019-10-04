@@ -1,0 +1,10 @@
+package global
+
+const (
+	START = iota
+	DIRECTORIES
+	FILES
+	CONTENT
+	ENVIRONMENTS
+	RECENT
+)
