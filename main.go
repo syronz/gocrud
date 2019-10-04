@@ -1,13 +1,14 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/eiannone/keyboard"
-	"go_crud/helper"
-	"go_crud/loaders"
-	//"go_crud/models"
 	"go_crud/engine"
 	. "go_crud/global"
+	"go_crud/helper"
+	"go_crud/loaders"
+	"go_crud/models"
 	"go_crud/trace"
 	//"log"
 	//"os"
@@ -27,7 +28,35 @@ func main() {
 
 	fmt.Printf(" ----------------  %T ||||  %+v  +++ %+v \n\n ======ENV %+v \n", engine.Config, basic, engine.Dirs, engine.Env)
 
-	//fC := loaders.Open(engine.Config, "assets", "k9.json")
+	fC := loaders.Open(engine.Config, "assets", "k9.json")
+
+	ttt := helper.EnvReplace(fC, engine.GetEnv())
+
+	//req := new(models.Request)
+	//decoder := json.NewDecoder(ttt)
+	//err := decoder.Decode(&req)
+	//if err != nil {
+	//fmt.Println("can't decode basic.json: ", err)
+	//}
+
+	in := ttt
+	bytes := []byte(in)
+
+	var p models.Request
+	err := json.Unmarshal(bytes, &p)
+	if err != nil {
+		panic(err)
+	}
+
+	bytes, err = json.Marshal(p)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(string(bytes))
+
+	fmt.Printf("≥≤≤≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥ %+v \n\n\nååååååœœœœœœœœœ %+v\n\n\n", p, string(bytes))
+	fmt.Println("######################## ", p, ttt, fC, engine.GetEnv())
 
 	//for k, v := range basic.Payload {
 	//switch vv := v.(type) {
@@ -70,7 +99,7 @@ func main() {
 	//engine.Env := basic.Env.([]map[string]interface{})
 	//fmt.Printf("&&&&&&&&&&&&&&&&&&   %+v -----  %T \n", rr, rr)
 
-	err := keyboard.Open()
+	err = keyboard.Open()
 	if err != nil {
 		panic(err)
 	}
@@ -86,16 +115,16 @@ func main() {
 	}
 
 	fmt.Println("Press ESC to quit")
-	engine.ShowPage(engine.Dirs, "Directories: ")
+	engine.Show()
 	for {
 		/*
 			switch engine.Page {
 			case DIRECTORIES:
-				engine.ShowPage(engine.Dirs, "Directories: ")
+			engine.Show()
 			case FILES:
-				engine.ShowPage(engine.Files, "Files: ")
+			engine.Show()
 			case ENVIRONMENTS:
-				engine.ShowPage(engine.EnvArr, "Environments: ")
+			engine.Show()
 
 			}
 		*/
@@ -117,13 +146,13 @@ func main() {
 			}
 		case char == 100:
 			engine.Page = DIRECTORIES
-			engine.ShowPage(engine.Dirs, "Directories: ")
+			engine.Show()
 		case char == 102:
 			if engine.SelectedDir == "" {
 				fmt.Println("NOTICE: at first choose direcotry")
 			}
 			engine.Page = FILES
-			engine.ShowPage(engine.Files, "Files: ")
+			engine.Show()
 
 		case (char > 47 && char < 58) || (char >= 65 && char <= 90):
 
@@ -136,7 +165,7 @@ func main() {
 					engine.SelectedDir = engine.Dirs[selectedNum]
 					engine.Files = trace.Files(engine.Config, engine.SelectedDir)
 					engine.Page = FILES
-					engine.ShowPage(engine.Files, "Files: ")
+					engine.Show()
 				}
 			case FILES:
 				if selectedNum < len(engine.Files) {
@@ -146,12 +175,13 @@ func main() {
 					fmt.Printf("%v", fileContent)
 
 					engine.Page = CONTENT
+					engine.Show()
 				}
 			case ENVIRONMENTS:
 				if selectedNum < len(engine.EnvArr) {
 					engine.Page = engine.PrePage
 					engine.SelectedEnv = engine.EnvArr[selectedNum]
-
+					engine.Show()
 				}
 			}
 			/*
@@ -162,8 +192,9 @@ func main() {
 				fmt.Println("....... ", engine.SelectedDir, engine.Files)
 			*/
 		case char == 101:
+			engine.PrePage = engine.Page
 			engine.Page = ENVIRONMENTS
-			engine.ShowPage(engine.EnvArr, "Environments: ")
+			engine.Show()
 		}
 
 		fmt.Printf("You pressed:%[1]T %[1]q   %[1]v\r\n", char)

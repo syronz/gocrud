@@ -4,13 +4,15 @@
 		{ 
 			"local": {
 				"_TOKEN1_":"Bearer 234235078971",
+				"_TOKEN2_":"Bearer 234235078971",
 				"_URL_":"http://127.0.0.1:8080",
 				"_NAME_":"Diako Amir"
 			}
 		},
 		{
 			"global": {
-				"_URL_":"http://192.168.1.1:8080"
+				"_URL_":"http://192.168.1.1:8080",
+				"_TOKEN2_":"Bearer xxxxxxxxxxxxxxxxxxxx"
 			}
 		}
 	],
