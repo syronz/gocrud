@@ -18,13 +18,11 @@ func ParseEnv(env interface{}) map[string]models.Env {
 					w := word.(string)
 					dict := models.Dict{k, w}
 					obj.Dict = append(obj.Dict, dict)
-					//fmt.Println(" INSIDE term %%%%%%%%% ", j, k, word, w)
 				}
 				envs[j] = obj
 			}
 		}
 	}
-	//fmt.Println("RRRRRRRRRRR +++++++++ ", envs["local"].Dict[1].Value)
 	return envs
 
 }

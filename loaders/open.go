@@ -1,7 +1,6 @@
 package loaders
 
 import (
-	//"encoding/json"
 	"fmt"
 	"go_crud/models"
 	"io/ioutil"
