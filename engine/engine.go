@@ -13,8 +13,9 @@ type Engine struct {
 	EnvArr  []string
 
 	SelectedDir  string
-	SelectedFile int
+	SelectedFile string
 	SelectedEnv  string
 	Content      string
 	Config       models.Config
+	Header       models.Header
 }

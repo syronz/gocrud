@@ -13,6 +13,7 @@ var NumForList = map[int]string{
 }
 
 func (e *Engine) ShowPage(arr []string, msg string) {
+	fmt.Println(" ")
 	fmt.Println(msg)
 	for i, v := range arr {
 		if i > 35 {
@@ -26,9 +27,9 @@ func (e *Engine) Show() {
 	case DIRECTORIES:
 		e.ShowPage(e.Dirs, "Directories: ")
 	case FILES:
-		e.ShowPage(e.Files, "Files: ")
+		e.ShowPage(e.Files, "Files: "+e.SelectedDir)
 	case ENVIRONMENTS:
-		e.ShowPage(e.EnvArr, "Environments: ")
+		e.ShowPage(e.EnvArr, "Environments: "+e.SelectedDir+"/"+e.SelectedFile)
 
 	}
 }
