@@ -52,23 +52,31 @@ basic.json
 
 inside the direcotry should be like:
 
-├── basic.json
-│
-├── config.json
-│
-└── requests
-    │
-    └── funds
-        │
-        ├── get.json
-        │
-        ├── getOne.json
-        │
-        └── post.json
+	├ basic.json
+	├ config.json
+	└ requests
+		└ funds
+			├ get.json
+			├ getOne.json
+			└ post.json
 
 ### Run
 ```shell
 go_prod -config cofnig.json
 ```
 
+## request fiels content
 
+```json
+{
+	"method":"post",
+	"url":"_URL_/m/funds",
+	"authorization":"Bearer _TOKEN2_",
+	"payload": {
+		"type": "in",
+		"invoice_id": 1,
+		"peer_id": null,
+		"amount": 3000
+	}
+}
+```
