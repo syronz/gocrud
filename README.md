@@ -13,7 +13,6 @@ go install
 create directory and inside that put these files and directories:
 
 cofnig.json
-
 ```json
 {
 	"data_dir":"data",
@@ -22,10 +21,8 @@ cofnig.json
 ```
 
 basic.json
-
 ```json
 {
-
 	"env": [
 		{
 			"local": {
@@ -56,15 +53,20 @@ basic.json
 inside the direcotry should be like:
 
 ├── basic.json
+│
 ├── config.json
+│
 └── requests
+    │
     └── funds
+        │
         ├── get.json
+        │
         ├── getOne.json
+        │
         └── post.json
 
 ### Run
-
 ```shell
 go_prod -config cofnig.json
 ```
