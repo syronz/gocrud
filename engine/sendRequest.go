@@ -41,24 +41,28 @@ func (e *Engine) SendRequest() {
 	result.Header.Add("Cache-Control", e.Header.CacheControl)
 	result.Header.Add("Connection", e.Header.Connection)
 
-	res, _ := http.DefaultClient.Do(result)
-
-	defer res.Body.Close()
-	resBody, _ := ioutil.ReadAll(res.Body)
-
-	var resInterface interface{}
-	err = json.Unmarshal(resBody, &resInterface)
+	res, err := http.DefaultClient.Do(result)
 	if err != nil {
-		log.Println("Error in unmarshal resBody ", err.Error())
-		//fmt.Println("Response: ", string(resBody))
-	}
+		fmt.Println("Error: ", err.Error())
+	} else {
 
-	finalJSON, err := json.MarshalIndent(resInterface, "", "\t")
-	if err != nil {
-		log.Println("Error in marshal resInterface ", err.Error())
-	}
+		defer res.Body.Close()
+		resBody, _ := ioutil.ReadAll(res.Body)
 
-	fmt.Printf("Response: %+v\n", res.Status)
-	fmt.Println(string(finalJSON))
+		var resInterface interface{}
+		err = json.Unmarshal(resBody, &resInterface)
+		if err != nil {
+			log.Println("Error in unmarshal resBody ", err.Error())
+			//fmt.Println("Response: ", string(resBody))
+		}
+
+		finalJSON, err := json.MarshalIndent(resInterface, "", "\t")
+		if err != nil {
+			log.Println("Error in marshal resInterface ", err.Error())
+		}
+
+		fmt.Printf("Response: %+v\n", res.Status)
+		fmt.Println(string(finalJSON))
+	}
 
 }

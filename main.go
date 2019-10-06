@@ -114,6 +114,7 @@ func main() {
 				if selectedNum < len(engine.EnvArr) {
 					engine.Page = engine.PrePage
 					engine.SelectedEnv = engine.EnvArr[selectedNum]
+					fmt.Printf("Environment has been updated: %v", engine.SelectedEnv)
 					engine.Show()
 				}
 			}

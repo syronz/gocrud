@@ -10,9 +10,13 @@
 			}
 		},
 		{
-			"global": {
-				"_URL_":"http://192.168.1.1:8080",
-				"_TOKEN2_":"Bearer xxxxxxxxxxxxxxxxxxxx"
+			"possales": {
+				"_TOKEN1_":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFwcHVzZXIiLCJleHAiOjE1NzU1MzQwOTl9.qj4UcE0Hy3YlHap3Lja_pv4TnEU6u5kpBLhHicbpFLU",
+				"_TOKEN2_":"eyJhbGciOiJIUzI1...",
+
+				"_TOKEN2_":"eyJhbGciOiJIUzI1...",
+				"_URL_":"http://127.0.0.1:8080"
+
 			}
 		}
 	],

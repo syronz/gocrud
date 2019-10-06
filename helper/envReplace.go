@@ -10,6 +10,8 @@ func EnvReplace(str string, env models.Env) string {
 		str = strings.Replace(str, v.Key, v.Value, -1)
 	}
 
+	str = strings.Replace(str, "_RANDOM_NAME_", RandomName(), -1)
+
 	return str
 
 }
