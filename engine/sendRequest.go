@@ -17,16 +17,20 @@ func (e *Engine) SendRequest() {
 	fullContentByted := []byte(fullContent)
 	err := json.Unmarshal(fullContentByted, &req)
 	if err != nil {
-		log.Fatal("Error in unmarshal content", err.Error())
+		//log.Fatal("Error in unmarshal content ", err.Error())
+		fmt.Println("ERROR: JSON format is wrong, ", e.SelectedDir, "/", e.SelectedFile)
+		fmt.Println("Raw content: ", e.Content)
+		return
+
 	}
 	payloadJSON, err := json.Marshal(req.Payload)
 	if err != nil {
-		log.Fatal("Error in marshal content", err.Error())
+		log.Fatal("Error in marshal content ", err.Error())
 	}
 	payload := bytes.NewReader(payloadJSON)
 
 	if req.Url == "" || req.Method == "" {
-		fmt.Println("Invalid format for json file")
+		fmt.Println("Error: Invalid format for json file")
 		return
 	}
 
@@ -48,21 +52,21 @@ func (e *Engine) SendRequest() {
 
 		defer res.Body.Close()
 		resBody, _ := ioutil.ReadAll(res.Body)
+		fmt.Printf("Status: %+v\n", res.Status)
 
 		var resInterface interface{}
 		err = json.Unmarshal(resBody, &resInterface)
 		if err != nil {
-			log.Println("Error in unmarshal resBody ", err.Error())
-			//fmt.Println("Response: ", string(resBody))
-		}
+			fmt.Println("Response is not JSON")
+			fmt.Println(string(resBody))
+		} else {
+			finalJSON, err := json.MarshalIndent(resInterface, "", "\t")
+			if err != nil {
+				fmt.Println("Error in marshal resInterface ", err.Error())
+			}
 
-		finalJSON, err := json.MarshalIndent(resInterface, "", "\t")
-		if err != nil {
-			log.Println("Error in marshal resInterface ", err.Error())
+			fmt.Println(string(finalJSON))
 		}
-
-		fmt.Printf("Response: %+v\n", res.Status)
-		fmt.Println(string(finalJSON))
 	}
 
 }

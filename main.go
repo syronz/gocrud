@@ -40,7 +40,7 @@ func main() {
 
 	//var ptr *[]string
 
-	fmt.Println("Press ESC to quit, h to help")
+	fmt.Println("Press ESC to quit, h for help")
 	engine.Show()
 	for {
 
@@ -57,33 +57,38 @@ func main() {
 		case key == keyboard.KeySpace:
 			if engine.SelectedDir != "" && engine.SelectedFile != "" {
 				engine.Content = loaders.Open(engine.Config, engine.SelectedDir, engine.SelectedFile)
-				engine.ShowCurrentPath()
-			} else {
-				fmt.Println("at first you should choose a file, Directories: d, Files: f")
-				engine.ShowCurrentPath()
-			}
-
-		case key == keyboard.KeyEnter:
-			if engine.SelectedDir != "" && engine.SelectedFile != "" {
-				engine.Content = loaders.Open(engine.Config, engine.SelectedDir, engine.SelectedFile)
 				engine.SendRequest()
 			} else {
 				fmt.Println("at first you should choose a file, Directories: d, Files: f")
 				engine.ShowCurrentPath()
 			}
 
-		case char == 120:
+		case key == keyboard.KeyEnter:
+			fmt.Printf("...\n...\n...\n")
+
+		case char == 112: //p
+			if engine.SelectedDir != "" && engine.SelectedFile != "" {
+				engine.Content = loaders.Open(engine.Config, engine.SelectedDir, engine.SelectedFile)
+				engine.ShowCurrentPath()
+			} else {
+				fmt.Println("at first you should choose a file, Directories: d, Files: f")
+				engine.ShowCurrentPath()
+			}
+
+		case char == 120: //x
 			engine.Page--
 			if engine.Page < 1 {
 				engine.Page = 1
 			}
-		case char == 100:
+		case char == 100: //d
 			engine.Page = DIRECTORIES
+			engine.Dirs = trace.Directory(engine.Config)
 			engine.Show()
 		case char == 102:
 			if engine.SelectedDir == "" {
 				fmt.Println("NOTICE: at first choose direcotry, press d to see directoreis")
 			}
+			engine.Files = trace.Files(engine.Config, engine.SelectedDir)
 			engine.Page = FILES
 			engine.Show()
 
@@ -126,7 +131,7 @@ func main() {
 
 		case char == 104: //h
 			fmt.Printf("\nHELP\n1.Directories: d\n2.Files: f\n3.Environments: e\n" +
-				"4.Request preview: <Space>\n5.Send request: <Enter>\n6.Exit: <Esc>\n7.Upper page: x ")
+				"4.Request preview: p>\n5.Send request: <Space>\n6.Exit: <Esc>\n7.Upper page: x\n8.Print ...: <Enter> ")
 		}
 
 		//fmt.Printf("You pressed:%[1]T %[1]q   %[1]v\r\n", char)
