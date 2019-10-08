@@ -50,7 +50,7 @@ basic.json
 }
 ```
 
-inside the direcotry should be like:
+inside the main directory, the program can handle 35 sub-directory, inside each sub-directory it can handle 35 files. Folder structure can be like below:
 
 	├ basic.json
 	├ config.json
@@ -62,7 +62,7 @@ inside the direcotry should be like:
 
 ### Run
 ```shell
-go_prod -config cofnig.json
+go_prod -config config.json
 ```
 
 ## request fiels content

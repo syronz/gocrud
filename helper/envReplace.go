@@ -11,6 +11,7 @@ func EnvReplace(str string, env models.Env) string {
 	}
 
 	str = strings.Replace(str, "_RANDOM_NAME_", RandomName(), -1)
+	str = strings.Replace(str, "_RANDOM_NUMBER_", RandomNumber(1, 10000000), -1)
 
 	return str
 
