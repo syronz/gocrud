@@ -1,5 +1,6 @@
 package models
 
+// Header is part of Basic
 type Header struct {
 	ContentType  string `json:"Content-Type"`
 	UserAgent    string `json:"User-Agent"`
@@ -9,6 +10,7 @@ type Header struct {
 	Connection   string `json:"Connection"`
 }
 
+// Basic is used for holding environments wich is used for translate variables inside the payloads and etc
 type Basic struct {
 	Env    []interface{} `json:"env"`
 	Header Header        `json:"header"`

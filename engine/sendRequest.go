@@ -11,6 +11,8 @@ import (
 	"strings"
 )
 
+// SendRequest is the final step method for prepare crud request based on files and selected variables and
+// demonstrate result of request
 func (e *Engine) SendRequest() {
 	var req models.Request
 	fullContent := e.TranslatedContent()

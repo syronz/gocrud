@@ -1,6 +1,6 @@
 package global
 
-// key range for selection 0-9 and A-Z
+// SelectionKey is a key range for selection 0-9 and A-Z
 var SelectionKey = map[int32]int32{
 	48: 0, 49: 1, 50: 2, 51: 3, 52: 4, 53: 5, 54: 6, 55: 7, 56: 8, 57: 9,
 	65: 10, 66: 11, 67: 12, 68: 13, 69: 14, 70: 15, 71: 16, 72: 17, 73: 18,

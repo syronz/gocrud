@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// RandomName generate random names with dash betweens
 func RandomName() string {
 	seed := time.Now().UTC().UnixNano()
 	nameGenerator := namegenerator.NewNameGenerator(seed)

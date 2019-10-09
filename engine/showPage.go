@@ -5,6 +5,8 @@ import (
 	. "go_crud/global"
 )
 
+// NumForList is used to show number or alphabetic for selection list wich can be directory or file (request) or
+// environment type
 var NumForList = map[int]string{
 	0: "0", 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8", 9: "9",
 	10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F", 16: "G", 17: "H", 18: "I",
@@ -12,6 +14,7 @@ var NumForList = map[int]string{
 	28: "S", 29: "T", 30: "U", 31: "V", 32: "W", 33: "X", 34: "Y", 35: "Z",
 }
 
+// ShowPage is method for display list of directoires or files based on string array and proper message
 func (e *Engine) ShowPage(arr []string, msg string) {
 	fmt.Println(" ")
 	fmt.Println(msg)
@@ -22,6 +25,8 @@ func (e *Engine) ShowPage(arr []string, msg string) {
 		fmt.Printf("%v. %v \n", NumForList[i], v)
 	}
 }
+
+// Show used ShowPage for demonstrate different type of lists
 func (e *Engine) Show() {
 	switch e.Page {
 	case DIRECTORIES:

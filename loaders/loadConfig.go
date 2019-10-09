@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-// load config.json
+// LoadConfig will encode the config.json and save it to the config struct
 func LoadConfig(configPath string) models.Config {
 	var config models.Config
 

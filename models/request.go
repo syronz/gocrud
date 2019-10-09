@@ -1,5 +1,6 @@
 package models
 
+// Request is used for encoding payload files
 type Request struct {
 	Method        string      `json:"method"`
 	Url           string      `json:"url"`

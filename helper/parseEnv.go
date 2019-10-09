@@ -4,6 +4,8 @@ import (
 	"go_crud/models"
 )
 
+// ParseEnv can handle complicated environment design of variables inside basic.json and it uses interfaces for
+// encoding the content
 func ParseEnv(env interface{}) map[string]models.Env {
 	envs := map[string]models.Env{}
 

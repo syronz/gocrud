@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-// load basic.json
+// LoadBasic will open basic.json and encode then return it
 func LoadBasic(config models.Config) models.Basic {
 	var basic models.Basic
 	basicFile, err := os.Open(config.BasePath)
