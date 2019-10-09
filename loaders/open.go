@@ -9,7 +9,7 @@ import (
 	"path"
 )
 
-// load config.json
+// Open config.json and load to the config struct
 func Open(config models.Config, selectedDir, selectedFile string) string {
 	fmt.Println("FILE: ", path.Join(config.DataDir, selectedDir, selectedFile))
 	f, err := os.Open(path.Join(config.DataDir, selectedDir, selectedFile))

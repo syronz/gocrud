@@ -6,6 +6,7 @@ import (
 	"log"
 )
 
+// Directory check the folder and return an array according to the list of all directories
 func Directory(config models.Config) []string {
 	files, err := ioutil.ReadDir(config.DataDir)
 	if err != nil {

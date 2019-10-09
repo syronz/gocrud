@@ -7,6 +7,7 @@ import (
 	"path"
 )
 
+// Files get a directory and returns and array consist of all files
 func Files(config models.Config, selectedDir string) []string {
 	files, err := ioutil.ReadDir(path.Join(config.DataDir, selectedDir))
 	if err != nil {
