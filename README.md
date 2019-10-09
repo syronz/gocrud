@@ -1,3 +1,5 @@
+[![Build Status](https://api.travis-ci.org/syronz/go_crud.svg?branch=master)](http://travis-ci.org/syronz/go_crud)
+
 # go_crud
 simple app like postman
 
