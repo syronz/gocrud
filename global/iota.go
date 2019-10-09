@@ -1,6 +1,6 @@
 package global
 
-// START is the first element of iota wich is used for the phase of showing page
+// START is the first element of iota which is used for the phase of showing page
 const (
 	START = iota
 	DIRECTORIES

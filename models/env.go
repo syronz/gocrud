@@ -1,6 +1,6 @@
 package models
 
-// Dics is part of Env
+// Dict is part of Env
 type Dict struct {
 	Key   string `json:"key"`
 	Value string `json:"value"`

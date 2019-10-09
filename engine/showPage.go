@@ -5,7 +5,7 @@ import (
 	. "go_crud/global"
 )
 
-// NumForList is used to show number or alphabetic for selection list wich can be directory or file (request) or
+// NumForList is used to show number or alphabetic for selection list which can be directory or file (request) or
 // environment type
 var NumForList = map[int]string{
 	0: "0", 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8", 9: "9",

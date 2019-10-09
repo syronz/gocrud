@@ -86,7 +86,7 @@ func main() {
 			engine.Show()
 		case char == 102:
 			if engine.SelectedDir == "" {
-				fmt.Println("NOTICE: at first choose direcotry, press d to see directoreis")
+				fmt.Println("NOTICE: at first choose directory, press d to see directoreis")
 			}
 			engine.Files = trace.Files(engine.Config, engine.SelectedDir)
 			engine.Page = FILES

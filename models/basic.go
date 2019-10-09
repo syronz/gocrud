@@ -10,7 +10,7 @@ type Header struct {
 	Connection   string `json:"Connection"`
 }
 
-// Basic is used for holding environments wich is used for translate variables inside the payloads and etc
+// Basic is used for holding environments which is used for translate variables inside the payloads and etc
 type Basic struct {
 	Env    []interface{} `json:"env"`
 	Header Header        `json:"header"`
