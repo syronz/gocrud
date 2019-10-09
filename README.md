@@ -1,4 +1,4 @@
-[![Build Status](https://api.travis-ci.org/syronz/go_crud.svg?branch=master)](http://travis-ci.org/syronz/go_crud) [![ReportCard](https://goreportcard.com/badge/github.com/syronz/go_crud)](https://goreportcard.com/badge/github.com/syronz/go_crud)
+[![Build Status](https://api.travis-ci.org/syronz/go_crud.svg?branch=master)](http://travis-ci.org/syronz/go_crud) [![ReportCard](https://goreportcard.com/badge/github.com/syronz/go_crud)](https://goreportcard.com/badge/github.com/syronz/go_crud) [![Release](https://img.shields.io/badge/release-v0.9-2c215ed.svg)](https://github.com/syronz/go_crud/releases/tag/v0.9)
 
 # go_crud
 simple app like postman
