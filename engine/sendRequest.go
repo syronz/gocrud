@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"time"
 )
 
 // SendRequest is the final step method for prepare crud request based on files and selected variables and
@@ -37,6 +38,19 @@ func (e *Engine) SendRequest() {
 	}
 
 	url := req.Url
+	stopSignal := make(chan bool, 1)
+
+	go func(stop chan bool) {
+		for {
+			select {
+			case <-stop:
+				return
+			case <-time.After(800 * time.Millisecond):
+				fmt.Print(".")
+
+			}
+		}
+	}(stopSignal)
 
 	result, _ := http.NewRequest(strings.ToUpper(req.Method), url, payload)
 
@@ -48,8 +62,9 @@ func (e *Engine) SendRequest() {
 	result.Header.Add("Connection", e.Header.Connection)
 
 	res, err := http.DefaultClient.Do(result)
+	stopSignal <- true
 	if err != nil {
-		fmt.Println("Error: ", err.Error())
+		fmt.Println("\nError: ", err.Error())
 	} else {
 
 		defer res.Body.Close()
