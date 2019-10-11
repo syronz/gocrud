@@ -2,7 +2,7 @@ package loaders
 
 import (
 	"encoding/json"
-	"go_crud/models"
+	"gocrud/models"
 	"log"
 	"os"
 )

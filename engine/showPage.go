@@ -2,7 +2,7 @@ package engine
 
 import (
 	"fmt"
-	. "go_crud/global"
+	. "gocrud/global"
 )
 
 // NumForList is used to show number or alphabetic for selection list which can be directory or file (request) or

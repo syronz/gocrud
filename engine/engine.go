@@ -1,7 +1,7 @@
 package engine
 
 import (
-	"go_crud/models"
+	"gocrud/models"
 )
 
 // Engine is must important struct for saving almost anything and pass important variables to various functions

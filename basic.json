@@ -23,7 +23,7 @@
 
 	"header":{
 		"Content-Type": "application/json",
-		"User-Agent": "go_crud/0.1",
+		"User-Agent": "gocrud/0.1",
 		"Accept": "*/*",
 		"Cache-Control": "no-cache",
 		"Connection": "keep-alive"

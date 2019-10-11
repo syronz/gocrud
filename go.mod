@@ -1,4 +1,4 @@
-module go_crud
+module gocrud
 
 go 1.12
 

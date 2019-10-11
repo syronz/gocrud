@@ -1,7 +1,7 @@
 package engine
 
 import (
-	"go_crud/helper"
+	"gocrud/helper"
 )
 
 // TranslatedContent prepare request by swap keywords with variables, which defined in basic.json and env part

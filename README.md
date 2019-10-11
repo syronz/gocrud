@@ -1,6 +1,6 @@
-[![Build Status](https://api.travis-ci.org/syronz/go_crud.svg?branch=master)](http://travis-ci.org/syronz/go_crud) [![ReportCard](https://goreportcard.com/badge/github.com/syronz/go_crud)](https://goreportcard.com/report/github.com/syronz/go_crud) [![Release](https://img.shields.io/badge/release-v0.9-2c215ed.svg)](https://github.com/syronz/go_crud/releases/tag/v0.9)
+[![Build Status](https://api.travis-ci.org/syronz/gocrud.svg?branch=master)](http://travis-ci.org/syronz/gocrud) [![ReportCard](https://goreportcard.com/badge/github.com/syronz/gocrud)](https://goreportcard.com/report/github.com/syronz/gocrud) [![Release](https://img.shields.io/badge/release-v0.9-2c215ed.svg)](https://github.com/syronz/gocrud/releases/tag/v0.9)
 
-# go_crud
+# gocrud
 simple app like postman
 
 ### Installation
@@ -44,7 +44,7 @@ basic.json
 
 	"header":{
 		"Content-Type": "application/json",
-		"User-Agent": "go_crud/0.1",
+		"User-Agent": "gocrud/0.1",
 		"Accept": "*/*",
 		"Cache-Control": "no-cache",
 		"Connection": "keep-alive"

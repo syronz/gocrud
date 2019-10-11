@@ -1,7 +1,7 @@
 package helper
 
 import (
-	"go_crud/models"
+	"gocrud/models"
 	"strings"
 )
 

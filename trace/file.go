@@ -1,7 +1,7 @@
 package trace
 
 import (
-	"go_crud/models"
+	"gocrud/models"
 	"io/ioutil"
 	"log"
 	"path"

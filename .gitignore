@@ -15,5 +15,5 @@ session.vim
 bin/
 routes/
 samples/
-go_crud
+gocrud
 TODO.md

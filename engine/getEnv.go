@@ -1,7 +1,7 @@
 package engine
 
 import (
-	"go_crud/models"
+	"gocrud/models"
 )
 
 // GetEnv return back the selected environment

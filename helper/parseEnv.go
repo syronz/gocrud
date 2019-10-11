@@ -1,7 +1,7 @@
 package helper
 
 import (
-	"go_crud/models"
+	"gocrud/models"
 )
 
 // ParseEnv can handle complicated environment design of variables inside basic.json and it uses interfaces for

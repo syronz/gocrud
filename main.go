@@ -4,11 +4,11 @@ import (
 	"flag"
 	"fmt"
 	"github.com/eiannone/keyboard"
-	"go_crud/engine"
-	. "go_crud/global"
-	"go_crud/helper"
-	"go_crud/loaders"
-	"go_crud/trace"
+	"gocrud/engine"
+	. "gocrud/global"
+	"gocrud/helper"
+	"gocrud/loaders"
+	"gocrud/trace"
 	"log"
 	"os/user"
 )
@@ -19,7 +19,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	configPath := flag.String("config", usr.HomeDir+"/.go_crud/config.json", "config file path")
+	configPath := flag.String("config", usr.HomeDir+"/.gocrud/config.json", "config file path")
 	flag.Parse()
 
 	engine := new(engine.Engine)

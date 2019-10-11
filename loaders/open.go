@@ -2,7 +2,7 @@ package loaders
 
 import (
 	"fmt"
-	"go_crud/models"
+	"gocrud/models"
 	"io/ioutil"
 	"log"
 	"os"

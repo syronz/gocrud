@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"go_crud/models"
+	"gocrud/models"
 	"io/ioutil"
 	"log"
 	"net/http"
