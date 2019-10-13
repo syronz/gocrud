@@ -62,7 +62,7 @@ func (e *Engine) SendRequest() {
 	result.Header.Add("Cache-Control", e.Header.CacheControl)
 	result.Header.Add("Connection", e.Header.Connection)
 
-	// Ignore TLS certificate verification
+	// Ignore TLS certificate verification (https)
 	transport := &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 	}
