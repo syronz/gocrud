@@ -1,7 +1,7 @@
 [![Build Status](https://api.travis-ci.org/syronz/gocrud.svg?branch=master)](http://travis-ci.org/syronz/gocrud) [![ReportCard](https://goreportcard.com/badge/github.com/syronz/gocrud)](https://goreportcard.com/report/github.com/syronz/gocrud) [![Release](https://img.shields.io/badge/release-v0.9-2c215ed.svg)](https://github.com/syronz/gocrud/releases/tag/v0.9)
 
 # gocrud
-simple app like postman
+Terminal interface application for testing REST API.
 
 ### Installation
 
@@ -64,7 +64,7 @@ inside the main directory, the program can handle 35 sub-directory, inside each 
 
 ### Run
 ```shell
-go_prod -config config.json
+gocrud --config config.json
 ```
 
 ## request fiels content
