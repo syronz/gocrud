@@ -2,6 +2,7 @@ package engine
 
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"gocrud/models"
@@ -61,7 +62,15 @@ func (e *Engine) SendRequest() {
 	result.Header.Add("Cache-Control", e.Header.CacheControl)
 	result.Header.Add("Connection", e.Header.Connection)
 
-	res, err := http.DefaultClient.Do(result)
+	// Ignore TLS certificate verification
+	transport := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	client := &http.Client{Transport: transport}
+	res, err := client.Do(result)
+
+
+	//res, err := http.DefaultClient.Do(result)
 	stopSignal <- true
 	if err != nil {
 		fmt.Println("\nError: ", err.Error())
