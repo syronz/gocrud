@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/eiannone/keyboard"
 	"gocrud/engine"
 	. "gocrud/global"
 	"gocrud/helper"
@@ -11,6 +10,9 @@ import (
 	"gocrud/trace"
 	"log"
 	"os/user"
+	"time"
+
+	"github.com/eiannone/keyboard"
 )
 
 func main() {
@@ -80,11 +82,24 @@ func main() {
 			if engine.Page < 1 {
 				engine.Page = 1
 			}
+		case char == 115:
+			if engine.SelectedDir == "" {
+				fmt.Println("NOTICE: at first choose directory, press d to see directoreis")
+			}
+			engine.Files = trace.Files(engine.Config, engine.SelectedDir)
+			for i, v := range engine.Files {
+				engine.Content = loaders.Open(engine.Config, engine.SelectedDir, v)
+				engine.SendRequest()
+				time.Sleep(100 * time.Millisecond)
+				fmt.Printf("%v\n%v", i, v)
+			}
+
+			fmt.Println("you pressed s which means start process....", engine.SelectedDir, engine.Files)
 		case char == 100: //d
 			engine.Page = DIRECTORIES
 			engine.Dirs = trace.Directory(engine.Config)
 			engine.Show()
-		case char == 102:
+		case char == 102: //f
 			if engine.SelectedDir == "" {
 				fmt.Println("NOTICE: at first choose directory, press d to see directoreis")
 			}
@@ -131,10 +146,11 @@ func main() {
 
 		case char == 104: //h
 			fmt.Printf("\nHELP\n1.Directories: d\n2.Files: f\n3.Environments: e\n" +
-				"4.Request preview: p>\n5.Send request: <Space>\n6.Exit: <Esc>\n7.Upper page: x\n8.Print ...: <Enter> ")
+				"4.Request preview: p>\n5.Send request: <Space>\n6.Exit: <Esc>\n" +
+				"7.Upper page: x\n8.Send All Reqeusts: s\n9.Print ...: <Enter> ")
 		}
 
-		//fmt.Printf("You pressed:%[1]T %[1]q   %[1]v\r\n", char)
+		// fmt.Printf("You pressed:%[1]T %[1]q   %[1]v\r\n", char)
 		//fmt.Println(SelectionKey[char], engine.PrePage, engine.SelectedEnv)
 	}
 

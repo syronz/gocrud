@@ -1,33 +1,33 @@
 {
-
 	"env": [
-		{ 
-			"local": {
-				"_TOKEN1_":"Bearer 234235078971",
-				"_TOKEN2_":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFwcHVzZXIiLCJleHAiOjE1NzQ2ODU3Njh9.5xS1e9CdSoYWiOqwUbrvRGDdku03ObpF-zP8F20z1Go",
-				"_URL_":"http://127.0.0.1:8080",
-				"_NAME_":"Diako Amir"
+		{
+			"appuser": {
+				"_TOKEN1_":"Bearer eyJh....",
+				"_URL_":"http://127.0.0.1:8080/api/rms/v1",
+				"_URLM_":"http://127.0.0.1:8080/api/rms/v1/m"
 			}
 		},
 		{
-			"possales": {
-				"_TOKEN1_":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFwcHVzZXIiLCJleHAiOjE1NzU1MzQwOTl9.qj4UcE0Hy3YlHap3Lja_pv4TnEU6u5kpBLhHicbpFLU",
-				"_TOKEN2_":"eyJhbGciOiJIUzI1...",
+			"amjad": {
+				"_TOKEN1_":"Bearer eyJhbGc....",
+				"_URL_":"http://127.0.0.1:8080/api/rms/v1",
+				"_URLM_":"http://127.0.0.1:8080/api/rms/v1/m"
+			}
+		},
 
-				"_TOKEN2_":"eyJhbGciOiJIUzI1...",
-				"_URL_":"http://127.0.0.1:8080"
-
+		{
+			"global": {
+				"_URL_":"http://192.168.1.1:8080",
+				"_TOKEN2_":"Bearer ,,,,,,,"
 			}
 		}
 	],
 
 	"header":{
 		"Content-Type": "application/json",
-		"User-Agent": "gocrud/0.1",
+		"User-Agent": "go_crud/0.1",
 		"Accept": "*/*",
 		"Cache-Control": "no-cache",
 		"Connection": "keep-alive"
 	}
-
-
 }
