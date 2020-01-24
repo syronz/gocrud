@@ -1,4 +1,5 @@
 [![Build Status](https://api.travis-ci.org/syronz/gocrud.svg?branch=master)](http://travis-ci.org/syronz/gocrud) [![ReportCard](https://goreportcard.com/badge/github.com/syronz/gocrud)](https://goreportcard.com/report/github.com/syronz/gocrud) [![Release](https://img.shields.io/badge/release-v0.9-2c215ed.svg)](https://github.com/syronz/gocrud/releases/tag/v0.9)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsyronz%2Fgocrud.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsyronz%2Fgocrud?ref=badge_shield)
 
 # gocrud
 Terminal interface application for testing REST API.
@@ -82,3 +83,7 @@ gocrud --config config.json
 	}
 }
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsyronz%2Fgocrud.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsyronz%2Fgocrud?ref=badge_large)
