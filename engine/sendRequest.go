@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 	"time"
 )
@@ -40,6 +41,7 @@ func (e *Engine) SendRequest() {
 
 	url := req.Url
 	stopSignal := make(chan bool, 1)
+	stopDot := make(chan bool, 1)
 
 	go func(stop chan bool) {
 		for {
@@ -48,8 +50,22 @@ func (e *Engine) SendRequest() {
 				return
 			case <-time.After(800 * time.Millisecond):
 				fmt.Print(".")
-			case <-time.After(time.Duration(e.Config.Timeout) * time.Second):
+			}
+
+		}
+
+	}(stopDot)
+
+	go func(stop chan bool) {
+		for {
+			select {
+			case <-stop:
+				stopDot <- true
 				return
+			case <-time.After(time.Duration(e.Config.Timeout) * time.Second):
+				fmt.Println("timeout exceeded!")
+				stopDot <- true
+				os.Exit(3)
 			}
 		}
 	}(stopSignal)
