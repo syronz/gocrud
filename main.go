@@ -8,20 +8,15 @@ import (
 	"gocrud/helper"
 	"gocrud/loaders"
 	"gocrud/trace"
-	"log"
-	"os/user"
 	"time"
 
 	"github.com/eiannone/keyboard"
 )
 
 func main() {
-	usr, err := user.Current()
-	if err != nil {
-		log.Fatal(err)
-	}
+	var err error
 
-	configPath := flag.String("config", usr.HomeDir+"/.gocrud/config.json", "config file path")
+	configPath := flag.String("config", "config.json", "config file path")
 	flag.Parse()
 
 	engine := new(engine.Engine)

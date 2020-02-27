@@ -48,7 +48,8 @@ func (e *Engine) SendRequest() {
 				return
 			case <-time.After(800 * time.Millisecond):
 				fmt.Print(".")
-
+			case <-time.After(time.Duration(e.Config.Timeout) * time.Second):
+				return
 			}
 		}
 	}(stopSignal)
@@ -68,7 +69,6 @@ func (e *Engine) SendRequest() {
 	}
 	client := &http.Client{Transport: transport}
 	res, err := client.Do(result)
-
 
 	//res, err := http.DefaultClient.Do(result)
 	stopSignal <- true
