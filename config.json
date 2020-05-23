@@ -1,5 +1,6 @@
 {
 	"data_dir":"samples",
 	"base_path":"basic.json",
-  "timeout":5
+  "timeout":5,
+  "delay": 200
 }
