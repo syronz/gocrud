@@ -1,6 +1,6 @@
 {
-	"data_dir":"samples",
+	"data_dir":"requests",
 	"base_path":"basic.json",
-  "timeout":5,
-  "delay": 200
+  "timeout":70
 }
+

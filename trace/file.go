@@ -5,6 +5,8 @@ import (
 	"io/ioutil"
 	"log"
 	"path"
+	"path/filepath"
+	"strings"
 )
 
 // Files get a directory and returns and array consist of all files
@@ -16,7 +18,7 @@ func Files(config models.Config, selectedDir string) []string {
 
 	var arr []string
 	for _, f := range files {
-		if !f.IsDir() {
+		if !f.IsDir() && strings.ToLower(filepath.Ext(f.Name())) == ".json" {
 			arr = append(arr, f.Name())
 		}
 	}
