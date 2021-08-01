@@ -26,11 +26,9 @@ func (e *Engine) SendRequest() {
 	err2 := json.Unmarshal(fullContentByted, &reqs)
 
 	if err != nil && err2 != nil {
-		//log.Fatal("Error in unmarshal content ", err.Error())
 		fmt.Println("ERROR: JSON format is wrong, ", e.SelectedDir, "/", e.SelectedFile)
 		fmt.Println("Raw content: ", e.Content)
 		return
-
 	}
 
 	if len(reqs) == 0 {
@@ -93,6 +91,10 @@ func (e *Engine) SendRequest() {
 		result.Header.Add("Cache-Control", e.Header.CacheControl)
 		result.Header.Add("Connection", e.Header.Connection)
 
+		for _, v := range req.Headers {
+			result.Header.Add(v.Name, v.Value)
+		}
+
 		// Ignore TLS certificate verification (https)
 		transport := &http.Transport{
 			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
@@ -100,7 +102,6 @@ func (e *Engine) SendRequest() {
 		client := &http.Client{Transport: transport}
 		res, err := client.Do(result)
 
-		//res, err := http.DefaultClient.Do(result)
 		stopSignal <- true
 		if err != nil {
 			fmt.Println("\nError: ", err.Error())

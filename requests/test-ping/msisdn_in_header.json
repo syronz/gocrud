@@ -1,0 +1,15 @@
+{
+  "method":"post",
+	"url":"http://127.0.0.1:7175/rcell/selfcare/v2/auto-signin",
+	"headers": [
+		{
+			"name": "X-SUB-IMSI",
+			"value": "diako"
+		},
+		{
+			"name": "X-SUB-MSISDN",
+			"value": "963500111111"
+		}
+	],
+	"payload": {}
+}
