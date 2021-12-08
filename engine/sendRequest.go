@@ -84,16 +84,16 @@ func (e *Engine) SendRequest() {
 
 		result, _ := http.NewRequest(strings.ToUpper(req.Method), url, payload)
 
-		result.Header.Add("Content-Type", e.Header.ContentType)
+		for _, v := range req.Headers {
+			result.Header.Add(v.Name, v.Value)
+		}
+
 		result.Header.Add("Authorization", req.Authorization)
+		result.Header.Add("Content-Type", e.Header.ContentType)
 		result.Header.Add("User-Agent", e.Header.UserAgent)
 		result.Header.Add("Accept", e.Header.Accept)
 		result.Header.Add("Cache-Control", e.Header.CacheControl)
 		result.Header.Add("Connection", e.Header.Connection)
-
-		for _, v := range req.Headers {
-			result.Header.Add(v.Name, v.Value)
-		}
 
 		// Ignore TLS certificate verification (https)
 		transport := &http.Transport{

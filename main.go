@@ -35,8 +35,6 @@ func main() {
 	}
 	defer keyboard.Close()
 
-	//var ptr *[]string
-
 	fmt.Println("Press ESC to quit, h for help")
 	engine.Show()
 	for {
